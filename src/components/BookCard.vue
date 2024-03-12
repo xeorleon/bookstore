@@ -1,5 +1,5 @@
 <template>
-  <div class="fbooks-item">
+  <div class="fbooks-item" @click="$router.push({ name: 'book-detail', params: { id: item.id } })">
     <div class="fbooks-item-img">
       <img :src="item.volumeInfo.imageLinks.thumbnail" class="book-item-img" alt="" />
     </div>
