@@ -10,7 +10,7 @@ export default {
   components: {
     BookCard,
   },
-  created() {
+ created() {
     this.$store.dispatch("getFeaturedBooks");
   },
   methods: {},

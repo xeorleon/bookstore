@@ -1,22 +1,32 @@
 <template>
-  <div class="fbooks-item" @click="$router.push({ name: 'book-detail', params: { id: item.id } })">
+  <div class="fbooks-item">
     <div class="fbooks-item-img">
-      <img :src="item.volumeInfo.imageLinks.thumbnail" class="book-item-img" alt="" />
+      <img :src="item.volumeInfo.imageLinks.thumbnail" class="book-item-img" alt="" @click="viewDetail" />
+      <add-update-basket-btn :item="item"></add-update-basket-btn>
     </div>
-    <div class="fbooks-item-detail">
+    <div class="fbooks-item-detail" @click="viewDetail">
       <div class="fbooks-item-title">{{ item.volumeInfo.title }}</div>
       <div class="fbooks-item-subtitle line-clamp-3">
         <span>{{ item.volumeInfo.description }}</span>
       </div>
-      <div class="fbooks-item-row line-clamp-1"><span>By: </span>{{ item.volumeInfo.authors[0] }}</div>
+      <div class="fbooks-item-row line-clamp-1" v-if="item.volumeInfo.authors"><span>By: </span>{{ item.volumeInfo.authors[0] }}</div>
       <div class="fbooks-item-row line-clamp-1"><span>Price: </span>{{ item.saleInfo.listPrice.amount }}₺</div>
     </div>
   </div>
 </template>
 
 <script>
+import AddUpdateBasketBtn from "./AddUpdateBasketBtn.vue";
 export default {
   props: ["item"],
+  components: {
+    AddUpdateBasketBtn,
+  },
+  methods: {
+    viewDetail() {
+      this.$router.push({ name: "book-detail", params: { id: this.item.id } });
+    },
+  },
 };
 </script>
 
@@ -31,10 +41,13 @@ export default {
   width: 100%;
   overflow: hidden;
   & > .fbooks-item-img {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     padding: 8px;
     & > img {
+      height: 160px;
       object-fit: cover;
-      height: 200px;
     }
   }
   & > .fbooks-item-detail {

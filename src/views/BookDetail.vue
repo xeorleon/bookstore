@@ -33,6 +33,7 @@
             <div class="bdetail-info-item-content">{{ bookData.volumeInfo.industryIdentifiers[0].identifier }}</div>
           </div>
         </div>
+        <add-update-basket-btn v-if="bookData" :item="bookData"></add-update-basket-btn>
       </div>
     </div>
     <div class="bdetail-right">
@@ -43,8 +44,11 @@
 </template>
 
 <script>
+import AddUpdateBasketBtn from '@/components/AddUpdateBasketBtn.vue';
 export default {
-  components: {},
+  components: {
+    AddUpdateBasketBtn
+  },
   data() {
     return {
       bookData: null,
