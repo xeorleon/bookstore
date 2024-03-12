@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header></el-header>
+    <el-header><Header></Header></el-header>
     <el-main>
       <router-view></router-view>
     </el-main>
@@ -8,7 +8,10 @@
 </template>
 
 <script>
+import Header from "../components/Header.vue";
 export default {
-  components: {},
+  components: {
+    Header
+  },
 };
 </script>
