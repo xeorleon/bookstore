@@ -7,9 +7,9 @@
 import Layout from "./views/Layout.vue";
 export default {
   components: {
-    Layout
-  }
-}
+    Layout,
+  },
+};
 </script>
 <style lang="less">
 @import url("./assets/css/global.less");

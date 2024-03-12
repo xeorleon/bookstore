@@ -4,16 +4,8 @@
       <header-button></header-button>
       <div class="logo-title" @click="$router.push('/')">BOOKSTORE.</div>
     </div>
-    <el-input
-      v-model="searchInput"
-      placeholder="Please input"
-      prefix-icon="el-icon-search"
-      class="header-search"
-    ></el-input>
-
-    <el-badge :value="12" class="item" type="info" :max="9">
-      <i class="el-icon-shopping-cart-2"></i
-    ></el-badge>
+    <el-input v-model="searchInput" placeholder="Please input" prefix-icon="el-icon-search" class="header-search"></el-input>
+    <el-badge :value="12" class="item" type="info" :max="9"> <i class="el-icon-shopping-cart-2"></i></el-badge>
   </div>
 </template>
 
