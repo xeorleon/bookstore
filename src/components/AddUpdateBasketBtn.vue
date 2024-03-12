@@ -20,6 +20,22 @@ export default {
     };
   },
   methods: {
+    checkItem() {
+      let fObj = this.basket.find((x) => x.id === this.item.id);
+      if (fObj) {
+        this.toAdd = false;
+        this.book = fObj;
+      } else {
+        this.toAdd = true;
+        this.book = {
+          id: this.item.id,
+          title: this.item.volumeInfo.title,
+          price: this.item.saleInfo.listPrice.amount,
+          thumbnail: this.item.volumeInfo.imageLinks.thumbnail,
+          amount: 1,
+        };
+      }
+    },
     update(val) {
       switch (val) {
         case 1:
@@ -35,6 +51,7 @@ export default {
             message: "Removed from cart",
             type: "success",
             showClose: false,
+            duration: 1000,
           });
           this.toAdd = true;
           break;
@@ -47,6 +64,7 @@ export default {
         message: "Added from cart",
         type: "success",
         showClose: false,
+        duration: 1000,
       });
       this.toAdd = !this.toAdd;
     },
@@ -56,21 +74,16 @@ export default {
       return this.$store.getters.getBasket;
     },
   },
+  watch: {
+    basket() {
+      let fObj = this.basket.find((x) => x.id === this.item.id);
+      if (!fObj) {
+        this.checkItem();
+      }
+    },
+  },
   mounted() {
-    let fObj = this.basket.find((x) => x.id === this.item.id);
-    if (fObj) {
-      this.toAdd = false;
-      this.book = fObj;
-    } else {
-      this.toAdd = true;
-      this.book = {
-        id: this.item.id,
-        title: this.item.volumeInfo.title,
-        price: this.item.saleInfo.listPrice.amount,
-        thumbnail: this.item.volumeInfo.imageLinks.thumbnail,
-        amount: 1,
-      };
-    }
+    this.checkItem();
   },
 };
 </script>

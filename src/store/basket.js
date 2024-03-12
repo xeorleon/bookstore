@@ -24,8 +24,7 @@ Vue.use(Vuex)
     deleteBasket(state,payload){
       state.basket = state.basket.filter(x => x.id != payload.id);
     },
-    openCloseBasket(state,payload){
-      console.log(payload);
+    openCloseBasket(state,payload){ 
       state.basketDialog = payload;
     },
   },

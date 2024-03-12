@@ -5,7 +5,7 @@
       <div class="logo-title" @click="$router.push('/')">BOOKSTORE.</div>
     </div>
     <el-input v-model="searchInput" placeholder="Please input" prefix-icon="el-icon-search" class="header-search"></el-input>
-    <el-badge :value="12" class="item" type="info" :max="9"> <i class="el-icon-shopping-cart-2"></i></el-badge>
+    <el-badge :value="basket.length" class="item" type="info" :max="9"> <i class="el-icon-shopping-cart-2" @click="basketDialog = !basketDialog"></i></el-badge>
   </div>
 </template>
 
@@ -17,6 +17,19 @@ export default {
     return {
       searchInput: null,
     };
+  },
+  computed: {
+    basket() {
+      return this.$store.getters.getBasket;
+    },
+    basketDialog: {
+      get() {
+        return this.$store.getters.getBasketDialog;
+      },
+      set(val){
+        this.$store.commit('openCloseBasket', val)
+      },
+    },
   },
 };
 </script>

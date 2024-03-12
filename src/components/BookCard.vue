@@ -56,7 +56,6 @@ export default {
     gap: 8px;
     padding: 8px;
     text-align: start;
-    font-family: Poppins, sans-serif;
     & > div > span {
       color: #676768;
     }

@@ -1,10 +1,7 @@
 <template>
   <section class="home gm">
     <div class="fbooks">
-      <div class="fbooks-head">
-        <h2 class="fbooks-title">{{ title }}</h2>
-        <div class="fbooks-line"></div>
-      </div>
+      <BigTitle title="Featured Books" />
       <BookList></BookList>
     </div>
   </section>
@@ -13,10 +10,12 @@
 <script>
 // @ is an alias to /src
 import BookList from '@/components/BookList.vue';
+import BigTitle from '@/components/BigTitle.vue';
 export default {
   name: "HomeView",
   components: {
-    BookList
+    BookList,
+    BigTitle
   },
   computed: {
     title() {

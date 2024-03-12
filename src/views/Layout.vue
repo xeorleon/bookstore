@@ -4,7 +4,7 @@
     <el-main>
       <router-view></router-view>
     </el-main>
-    <el-drawer title="basket" :visible.sync="basketDialog" width :withHeader="false">
+    <el-drawer title="basket" :visible.sync="basketDialog" size="100%" class="custom-drawer" :withHeader="false">
       <BasketDrawer v-if="basketDialog" />
     </el-drawer>
   </el-container>
@@ -24,8 +24,14 @@ export default {
     };
   },
   computed: {
-    basketDialog() {
-      return this.$store.getters.getBasketDialog;
+    basketDialog:{
+      get(){
+        return this.$store.getters.getBasketDialog;
+      },
+      set(val){
+        this.$store.commit('openCloseBasket',val);
+      },
+      
     },
   },
 };
