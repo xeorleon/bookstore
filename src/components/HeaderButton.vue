@@ -1,5 +1,5 @@
 <template>
-  <div class="header_menu-btn" @click="getBooks">
+  <div class="header_menu-btn">
     <div class="bar"></div>
     <div class="bar"></div>
     <div class="bar"></div>

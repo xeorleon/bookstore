@@ -5,19 +5,22 @@
         <h2 class="fbooks-title">{{ title }}</h2>
         <div class="fbooks-line"></div>
       </div>
+      <BookList></BookList>
     </div>
   </section>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import BookList from '@/components/BookList.vue';
 export default {
   name: "HomeView",
-  components: {},
+  components: {
+    BookList
+  },
   computed: {
     title() {
-      return "Featured Books";
+        return "Featured Books";
     },
   },
 };

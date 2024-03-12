@@ -23,7 +23,7 @@ Vue.use(Vuex)
           startIndex:0,
           maxResults:40,
           orderBy: "newest",
-          filter:"paid-ebooks" 
+          filter:"paid-ebooks"
         }
       })
       store.commit('setList', res.data.items);
