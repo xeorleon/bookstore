@@ -1,5 +1,7 @@
 <template>
-  <div id="app">Test</div>
+  <div id="app">
+    
+  </div>
 </template>
 
 <style lang="less">
