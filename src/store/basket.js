@@ -8,8 +8,10 @@ Vue.use(Vuex)
     basket: [],
     basketTotalPrice:0,
     basketDialog:false,
+    checkOutDialog:false,
   }),
   getters: {
+    getCheckOutDialog:(state) => state.checkOutDialog,
     getBasket: (state ) => state.basket,
     getBasketDialog:(state) => state.basketDialog,
   },
@@ -26,6 +28,9 @@ Vue.use(Vuex)
     },
     openCloseBasket(state,payload){ 
       state.basketDialog = payload;
+    },
+    openCloseCheckOut(state,payload){ 
+      state.checkOutDialog = payload;
     },
   },
   actions: {

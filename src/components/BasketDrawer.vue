@@ -12,7 +12,7 @@
         <div class="basket-subtotal-title">Subtotal:</div>
         <div class="basket-subtotal-total">0₺</div>
       </div>
-      <el-button type="info">Confirm</el-button>
+      <el-button type="info" @click="openCheckOut">Confirm</el-button>
     </div>
   </div>
 </template>
@@ -23,18 +23,21 @@ import BigTitle from "./BigTitle.vue";
 export default {
   components: {
     BigTitle,
-    BasketCard
+    BasketCard,
   },
   computed: {
     basket() {
       return this.$store.getters.getBasket;
     },
   },
-  methods:{
-    close(){
-      this.$store.commit('openCloseBasket',false);
-    }
+  methods: {
+    openCheckOut() {
+      this.$store.commit("openCloseCheckOut", true);
+    },
 
+    close() {
+      this.$store.commit("openCloseBasket", false);
+    },
   },
 };
 </script>
@@ -71,7 +74,7 @@ export default {
   }
   .basket-drawer-footer {
     padding: 25px;
-    padding-top:0;
+    padding-top: 0;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
