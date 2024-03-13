@@ -10,7 +10,7 @@
     <div class="basket-drawer-footer">
       <div class="basket-subtotal">
         <div class="basket-subtotal-title">Subtotal:</div>
-        <div class="basket-subtotal-total">0₺</div>
+        <div class="basket-subtotal-total">{{totalPrice}}₺</div>
       </div>
       <el-button type="info" @click="openCheckOut">Confirm</el-button>
     </div>
@@ -28,6 +28,11 @@ export default {
   computed: {
     basket() {
       return this.$store.getters.getBasket;
+    },
+    totalPrice(){
+     var list = this.$store.getters.getBasket;
+     var totalPrice = list.reduce((total, book) => total + (book.price * book.amount), 0);
+     return totalPrice.toFixed(2);
     },
   },
   methods: {

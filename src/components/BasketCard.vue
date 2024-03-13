@@ -5,10 +5,10 @@
     </div>
     <div class="basket-card-content">
       <div class="basket-card-title">{{ item.title }}</div>
-      <div class="basket-card-price">Price: {{ item.price }}₺</div>
+      <div class="basket-card-price">Price: {{ item.price.toFixed(2) }}₺</div>
       <div class="basket-card-update">
         <AddUpdateBasketBtn :item="item"></AddUpdateBasketBtn>
-        <div class="cart-price-total">{{ item.price * item.amount }}₺</div>
+        <div class="cart-price-total">{{ (item.price * item.amount).toFixed(2) }}₺</div>
       </div>
     </div>
   </div>
