@@ -14,6 +14,14 @@ Vue.use(Vuex)
     getCheckOutDialog:(state) => state.checkOutDialog,
     getBasket: (state ) => state.basket,
     getBasketDialog:(state) => state.basketDialog,
+    getBasketTotalPrice(state){
+      if(state.bookList.length > 0){
+        return state.bookList.reduce((total, book) => total + book.price, 0);
+
+      }else {
+        return 0;
+      }
+    },
   },
   mutations: {
     addBasket(state,payload){
