@@ -8,7 +8,6 @@ client.defaults.baseURL = "https://www.googleapis.com/books/v1/"
 
 client.interceptors.request.use(function (config) {
     // Do something before request is sent
-    console.log(config)
     config.url = config.url + '?key=AIzaSyBv7dXolJMozxbE8TK5jMS5m18F8c8wE8A'
     return config;
   }, function (error) {

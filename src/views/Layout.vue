@@ -4,7 +4,7 @@
     <el-main>
       <router-view></router-view>
     </el-main>
-    <el-drawer title="basket" :visible.sync="basketDialog" size="100%" class="custom-drawer" :withHeader="false">
+    <el-drawer title="basket" :visible.sync="basketDialog" size="30%" class="custom-drawer" :withHeader="false">
       <BasketDrawer v-if="basketDialog" />
     </el-drawer>
   </el-container>

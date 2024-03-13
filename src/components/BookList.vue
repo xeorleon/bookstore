@@ -10,13 +10,29 @@ export default {
   components: {
     BookCard,
   },
- created() {
+  created() {
     this.$store.dispatch("getFeaturedBooks");
+  },
+  data() {
+    return {
+      timeout: null,
+    };
   },
   methods: {},
   computed: {
+    searchInput() {
+      return this.$store.getters.getSearchInput;
+    },
     listBooks() {
       return this.$store.getters.listFeaturedBooks;
+    },
+  },
+  watch: {
+    searchInput: function () {
+      if (this.timeout != null) clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.$store.dispatch("getFeaturedBooks");
+      }, 250);
     },
   },
 };

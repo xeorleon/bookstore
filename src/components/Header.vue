@@ -14,20 +14,26 @@ import HeaderButton from "./HeaderButton.vue";
 export default {
   components: { HeaderButton },
   data() {
-    return {
-      searchInput: null,
-    };
+    return {};
   },
   computed: {
     basket() {
       return this.$store.getters.getBasket;
     },
+    searchInput: {
+      get() {
+        return this.$store.getters.getSearchInput;
+      },
+      set(newVal) {
+        this.$store.commit("setSearchInput", newVal);
+      },
+    },
     basketDialog: {
       get() {
         return this.$store.getters.getBasketDialog;
       },
-      set(val){
-        this.$store.commit('openCloseBasket', val)
+      set(val) {
+        this.$store.commit("openCloseBasket", val);
       },
     },
   },
