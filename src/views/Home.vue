@@ -3,7 +3,7 @@
     <div class="fbooks">
       <BigTitle :title="title" />
       <BookList></BookList>
-      <el-button type="primary" v-if="bookList.length > 0" :loading="loading" @click="loadMore" :disabled="loading">Load More</el-button>
+      <el-button type="info" v-if="bookList.length > 0" :loading="loading" @click="loadMore" :disabled="loading">Load More</el-button>
     </div>
   </section>
 </template>

@@ -4,6 +4,31 @@
     <el-main>
       <router-view></router-view>
     </el-main>
+    <div class="main-footer">
+      <div class="main-footer-top">
+        <div class="main-footer-content">
+          <i class="el-icon-notebook-1"></i>
+          <div class="main-footer-detail">
+            <div class="footer-title">Book information?</div>
+            <div class="footer-detail">Please send us an email at support@gmail.com</div>
+          </div>
+        </div>
+        <div class="main-footer-content">
+          <i class="el-icon-help"></i>
+          <div class="main-footer-detail">
+            <div class="footer-title">Need Help?</div>
+            <div class="footer-detail">Please call us at 0123456789</div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="main-footer-bottom">
+        <div class="logo-title" @click="$router.push('/')">BOOKSTORE.</div>
+        <div class="footer-copyright">
+          © 2024 All right reserved.
+        </div>
+      </div>
+    </div>
     <el-drawer title="basket" :visible.sync="basketDialog" size="30%" class="custom-drawer" :withHeader="false">
       <BasketDrawer v-if="basketDialog" />
     </el-drawer>
@@ -21,7 +46,7 @@ export default {
   components: {
     Header,
     BasketDrawer,
-    CheckOutDrawer
+    CheckOutDrawer,
   },
   data() {
     return {
